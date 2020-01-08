@@ -1,2 +1,6 @@
 
 express/node_modules/
+/expressExample/node_modules/
+/easyspub/node_modules/
+/easyspub/logs/
+/easyspub/output.txt
