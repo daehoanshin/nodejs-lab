@@ -45,10 +45,8 @@ router.route('/process/login').post(function (req, res) {
     res.write("<div><p>" + paramId + "</p></div>");
     res.write("<div><p>" + paramPassword + "</p></div>");
     res.end();
-})
-router.route('/process/login').post(function (req, res) {
-    console.log('/process/login 라우팅 함수에서 받음.');
 });
+
 
 app.use('/', router)
 

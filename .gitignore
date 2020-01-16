@@ -4,3 +4,6 @@ express/node_modules/
 /easyspub/node_modules/
 /easyspub/logs/
 /easyspub/output.txt
+/server/node_modules/
+/webpack2-basics/node_modules/
+/webpack2-basics/dist/
