@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback Functions</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        html{
+            font-size: 20px;
+            line-height: 1.5;
+            font-family: sans-serif;
+            background-color: forestgreen;
+            color: #fff;
+        }
+    </style>
+    <!--
+    arrow functions
+    https://www.youtube.com/watch?v=2v4bulVra-w
+    tips and gotchas
+    https://www.youtube.com/watch?v=f0FQYfxRGF8
+    try catch
+    https://www.youtube.com/watch?v=_am9rKw4vWw
+    -->
+</head>
+<body>
+    <h1>What are Callback Funtions?</h1>
+    <h2>How do they work?</h2>
+    <script>
+        const app = {
+            geolocation: (good, bad) => {
+                //requires two functions be passed in
+                try {
+                    let pos = {
+                        latitude:0, longitude: 0
+                    }
+                    pos.latitude = (Math.random() * 360) - 180;
+                    pos.longitude = (Math.random() * 180) - 90;
+                    //latitude and longitude were backwards in the video
+                    if(Math.round(Math.random()) === 1) {
+                        throw new Error("my simulated geolocation failure");
+                    } else {
+                        good.call(app.geolocation, pos, 17);
+                        // good.call(app.geolocation, pos);
+                    }
+                } catch (errOR) {
+                    //if it fails we will call the bad function
+                    //and pass along the error object
+                    bad.call(app.geolocation, errOR, 42);
+                }
+            }
+        }
+
+        let success = (position, num) => {
+            console.log(`You are "at" position ${num} (${position.latitude}, ${position.longitude})`);
+        }
+        let fail = (err, num) => {
+            console.warn('Something bad happened', err.message, num);
+        }
+        app.geolocation(success, fail);
+    </script>
+</body>
+</html>
