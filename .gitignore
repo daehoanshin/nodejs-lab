@@ -1,5 +1,5 @@
 
-express/node_modules/
+/express/node_modules/
 /expressExample/node_modules/
 /easyspub/node_modules/
 /easyspub/logs/
@@ -7,3 +7,6 @@ express/node_modules/
 /server/node_modules/
 /webpack2-basics/node_modules/
 /webpack2-basics/dist/
+/webpack2-basics/node_modules/
+/webpack2-scss/node_modules/
+/*/node_modules

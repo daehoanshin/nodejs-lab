@@ -13,6 +13,7 @@ npm run build
 npm install css-loader style-loader --save-dev
 ```
 
+# webpack scss
 ```
-npm install css-loader style-loader --save-dev
+npm install sass-loader node-sass css-loader style-loader extract-text-webpack-plugin babel-core babel-loader babel-preset-es2015 --save-dev  
 ```
