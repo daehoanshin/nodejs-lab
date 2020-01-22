@@ -1,12 +1,5 @@
 
-/express/node_modules/
-/expressExample/node_modules/
-/easyspub/node_modules/
-/easyspub/logs/
-/easyspub/output.txt
-/server/node_modules/
-/webpack2-basics/node_modules/
+/*/logs/
+/*/output.txt
 /webpack2-basics/dist/
-/webpack2-basics/node_modules/
-/webpack2-scss/node_modules/
 /*/node_modules
