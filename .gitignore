@@ -4,3 +4,8 @@
 /webpack2-basics/dist/
 /*/node_modules
 /*/package-lock.json
+/*/*/package-lock.json
+
+DesignCourse/webpacktut/node_modules/
+/DesignCourse/webpacktut/dist/
+/DesignCourse/webpacktut/node_modules/
