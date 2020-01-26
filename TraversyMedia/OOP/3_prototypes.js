@@ -1,10 +1,8 @@
 // Constructor
 function Book(title, author, year) {
-    // console.log('Book Initialized..');
     this.title = title;
     this.author = author;
     this.year = year;
-
 }
 
 Book.prototype.getSummary = function () {
@@ -17,7 +15,7 @@ Book.prototype.getAge = function () {
     return `${this.title} is ${years} years old`;
 };
 
-// Revise / Chage Year
+// Revise / Change Year
 Book.prototype.revise = function (newYear) {
     this.year = newYear;
     this.revise = true;
