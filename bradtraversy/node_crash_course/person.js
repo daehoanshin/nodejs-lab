@@ -3,8 +3,7 @@
 
 // })
 
-console.log(__dirname, __filename);
-
+// console.log(__dirname, __filename);
 
 class person {
   constructor(name, age) {
