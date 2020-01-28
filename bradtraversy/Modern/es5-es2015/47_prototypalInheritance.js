@@ -11,7 +11,7 @@ Person.prototype.greeting = function() {
 
 const person1 = new Person('John', 'Doe');
 
-// console.log(person1.greeting());
+console.log(person1.greeting());
 
 // Customer constrcutor
 function Customer(firstName, lastName, phone, membership) {
@@ -23,10 +23,17 @@ function Customer(firstName, lastName, phone, membership) {
 // Inherit the Person prototype methods
 Customer.prototype = Object.create(Person.prototype);
 
+// Make customer.prototype return Customer()
+Customer.prototype.constrcutor = Customer;
+
 // Create customer
 const customer1 = new Customer('Tom', 'Smith', '555-555-5555', 'Standard');
 
-console.log(customer1);
+// console.log(customer1);
+// Customer greeting
+Customer.prototype.greeting = function() {
+  return `Hello there ${this.firstName} ${this.lastName} welcome to our company`;
+}
 
 console.log(customer1.greeting());
 
