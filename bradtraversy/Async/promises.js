@@ -33,9 +33,9 @@ function createPost(post) {
     });
 }
 
-/*createPost({title: 'Post Three', body: 'This is post three'})
+createPost({title: 'Post Three', body: 'This is post three'})
     .then(getPosts)
-    .catch(err => console.log(err));*/
+    .catch(err => console.log(err));
 
 // Promise.all
 /*const promise1 = Promise.resolve('Hello World');
