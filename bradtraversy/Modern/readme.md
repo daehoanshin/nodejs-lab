@@ -84,6 +84,7 @@
 
 113. Babel & Webpack Environment Setup
 9분
+[babel](https://github.com/bradtraversy/babel_webpack_starter)
 
 114. Intro To ES2015 Modules
 9분
