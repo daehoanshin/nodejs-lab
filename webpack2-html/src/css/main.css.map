@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,UAAW;EACT,gBAAgB,ECHX,QAAQ;EDIb,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,GAAG;;AAGd,YAAa;EACX,gBAAgB,ECTN,MAAM;EDUhB,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,GAAG",
+"sources": ["main.scss","_colors.scss"],
+"names": [],
+"file": "main.css"
+}
