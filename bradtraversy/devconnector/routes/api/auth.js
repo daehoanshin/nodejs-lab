@@ -16,6 +16,7 @@ router.get('/', auth, async (req, res) => {
   try {
     // res.send('Auth route');
     const user = await User.findById(req.user.id).select('-password');
+    console.log(user)
     res.json(user);
   } catch (err) {
     console.error(err.message);
@@ -49,7 +50,7 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
-
+      //console.log(user.password)
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
