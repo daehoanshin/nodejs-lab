@@ -6,6 +6,21 @@ const { check, validationResult } = require('express-validator/check')
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   Private
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    res.json(profiles);
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error');
+  }
+});
+
+
 // @route   GET api/profile/me
 // @desc    Get current users profile
 // @access  Private
@@ -74,9 +89,8 @@ router.post(
     if (bio) profileFields.bio = bio;
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
-
+    console.dir(`skills: ${skills}`)
     if (skills) {
-      console.log(123);
       profileFields.skills = skills.split(',').map(skill => skill.trim());
     }
 
@@ -88,7 +102,7 @@ router.post(
     if (linkedin) profileFields.social.linkedin = linkedin;
     if (instagram) profileFields.social.instagram = instagram;
 
-    console.log(profileFields.social.twitter);
+    console.dir(`profileFields.social.twitter: ${profileFields.social.twitter}`);
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -115,18 +129,7 @@ router.post(
   }
 );
 
-// @route    GET api/profile
-// @desc     Get all profiles
-// @access   Private
-router.get('/', async (req, res) => {
-  try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-    res.json(profiles);
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error');
-  }
-});
+
 
 // @route    GET api/profile/user/:user_id
 // @desc     Get profile by user ID
