@@ -73,12 +73,13 @@ router.post(
         config.get('jwtSecret'),
         { expiresIn: 360000 },
         (err, token) => {
-          if(err) throw err;
+          if(err) throw token;
           res.json({ token });
         }
       );
     } catch (err) {
-      console.errors(err.message);
+      // console.errors(err.message);
+      console.errors(err)
       res.status(500).send('Server error');
     }
 
