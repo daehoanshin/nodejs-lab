@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Leaflet Korean Provider Demo</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Leaflet style. REQUIRED! -->
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" /> -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+	<![endif]-->
+	<style>
+		html {
+			height: 100%
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.map {
+			height: 100%
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="map" class="map"></div>
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet-src.js"></script>
+	<script src="../lib/proj4-compressed.js"></script>
+	<script src="../lib/proj4leaflet.js"></script>
+	<script src="../lib/leaflet-providers.js"></script>
+	<script src="../src/Leaflet.KoreanTmsProviders.js"></script>
+	<script>
+
+
+
+		var map = L.map('map', {
+			continuousWorld: true,
+			worldCopyJump: false,
+			zoomControl: true,
+			center: [36, 128],
+			zoom: 8
+		});
+
+		var baseLayers = {
+			'VWorld Street Map': L.tileLayer.provider('VWorld.Street'),
+			'VWorld Satellite Map': L.tileLayer.provider('VWorld.Satellite').addTo(map),
+			'OpenStreetMap German Style': L.tileLayer.provider('OpenStreetMap.DE'),
+			'OpenStreetMap Black and White': L.tileLayer.provider('OpenStreetMap.BlackAndWhite'),
+			'Esri WorldStreetMap': L.tileLayer.provider('Esri.WorldStreetMap'),
+
+		};
+
+		var overlayLayers = {
+			'VWorld Hybrid Map': L.tileLayer.provider('VWorld.Hybrid').addTo(map),
+		};
+
+		// L.control.layers(baseLayers, overlayLayers, { collapsed: true }).addTo(map);
+		// map.setView([36, 128], 8);
+
+		//three markers
+		L.marker([37.5, 127.0])
+			.addTo(map)
+			.bindPopup("latlng: 37.5, 127.0", { closeOnClick: false, autoClose: false })
+			// .openPopup();
+
+		// var latlng1 = new L.LatLng(38.0, 127.0);
+		L.marker([36.3, 127.8])
+			.addTo(map)
+			.bindPopup("latlng1: 36.3, 127.8")
+			// .openPopup();
+
+		L.marker([35.4, 129.3])
+			.addTo(map)
+			.bindPopup("latlng: 35.4, 129.3", { closeOnClick: false, autoClose: false })
+			.openPopup();
+
+		// L.control.layers(baseLayers).addTo(map);
+		// L.control.scale().addTo(map);
+
+
+	</script>
+</body>
+
+</html>

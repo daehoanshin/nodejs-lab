@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Leaflet Korean Provider Demo</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Leaflet style. REQUIRED! -->
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" /> -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+	<![endif]-->
+	<style>
+		html {
+			height: 100%
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.map {
+			height: 100%
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="map" class="map"></div>
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet-src.js"></script>
+	<script src="../lib/proj4-compressed.js"></script>
+	<script src="../lib/proj4leaflet.js"></script>
+	<script src="../lib/leaflet-providers.js"></script>
+	<script src="../src/Leaflet.KoreanTmsProviders.js"></script>
+	<script>
+
+		/*** multi popup ***/
+		L.Map = L.Map.extend({
+			openPopup: function (popup) {
+				//        this.closePopup();  // just comment this
+				this._popup = popup;
+
+				return this.addLayer(popup).fire('popupopen', {
+					popup: this._popup
+				});
+			}
+		}); 
+
+		var map = L.map('map', {
+			continuousWorld: true,
+			worldCopyJump: false,
+			zoomControl: true,
+			center: [36, 128],
+			zoom: 8
+		});
+
+		// layer
+		var baseLayers = {
+			'VWorld Street Map': L.tileLayer.provider('VWorld.Street'),
+			'VWorld Satellite Map': L.tileLayer.provider('VWorld.Satellite').addTo(map),
+			'OpenStreetMap German Style': L.tileLayer.provider('OpenStreetMap.DE'),
+			'OpenStreetMap Black and White': L.tileLayer.provider('OpenStreetMap.BlackAndWhite'),
+			'Esri WorldStreetMap': L.tileLayer.provider('Esri.WorldStreetMap'),
+
+		};
+
+		// overlay layer
+		var overlayLayers = {
+			'VWorld Hybrid Map': L.tileLayer.provider('VWorld.Hybrid').addTo(map),
+		};
+
+		L.control.layers(baseLayers, overlayLayers, { collapsed: true }).addTo(map);
+
+		//three markers
+		L.marker([37.5, 127.0])
+			.addTo(map)
+			.bindPopup("서울 latlng: 37.5, 127.0")
+			.openPopup();
+		
+		L.marker([36.32, 127.45])
+			.addTo(map)
+			.bindPopup("대전 latlng: 36.32, 127.45")
+			.openPopup();
+
+		L.marker([35.4, 129.3])
+			.addTo(map)
+			.bindPopup("울산 latlng: 35.4, 129.3")
+			.openPopup();
+
+
+	</script>
+</body>
+
+</html>

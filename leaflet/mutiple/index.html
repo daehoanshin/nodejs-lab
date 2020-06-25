@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple concurrent popups w/ leaflet</title>
+    <script type="text/javascript" src="./maptimes4leaflet.json"></script>
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7.3/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+    <link type="text/css" rel="stylesheet" href="mtLeaf.css" />
+
+</head>
+
+<body onload="initialize()">
+
+    <div id="map"></div>
+    <p>
+        Here is a map of some Maptimes. Go to one of em and learn how to make this map better or make your own!
+
+        See: <a href="https://github.com/maptime/maptime.github.io">Maptime on Github</a>
+    </p>
+    <script type="text/javascript">
+        function initialize() {
+            //var layers = ["terrain", "watercolor","toner"];
+
+
+            var watercolor = new L.StamenTileLayer("watercolor");
+            var terrain = new L.StamenTileLayer("terrain");
+            var toner = new L.StamenTileLayer("toner");
+
+            var bases = {
+                "Watercolor": watercolor,
+                "Terrain": terrain,
+                "Toner": toner
+
+
+            }
+
+            L.Map = L.Map.extend({
+                openPopup: function (popup) {
+                    //        this.closePopup();  // just comment this
+                    this._popup = popup;
+
+                    return this.addLayer(popup).fire('popupopen', {
+                        popup: this._popup
+                    });
+                }
+            }); /***  end of hack ***/
+
+
+            var map = new L.Map('map', {
+                center: [39, -98],
+                zoom: 4,
+                layers: watercolor
+            })
+
+            var popmaps = function (feature, layer) {
+                var popUp = feature.properties.name
+                layer.bindPopup(String(popUp));
+            }
+
+            L.control.layers(bases).addTo(map);
+
+
+
+            L.geoJson(maptimes, {
+                pointToLayer: function (feature, latlng) {
+                    return L.marker(latlng, {
+
+                        fillColor: "#000000",
+                        color: "green",
+
+                        opacity: 1,
+
+                    });
+                },
+                onEachFeature: popmaps
+            }).addTo(map);
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
