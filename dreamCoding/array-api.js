@@ -54,6 +54,8 @@ const students = [
 
   const result = students.find((student) => student.score === 90);
   console.log(result);
+  const result3 = students.map((student) => student.score === 90);
+  console.log(result3);
 }
 
 // Q6. make an array of enrolled students
@@ -71,14 +73,14 @@ const students = [
 
 // Q8. check if there is a student with the score lower than 50
 {
-    console.clear();
+    // console.clear();
     const result = students.some((student) => student.score < 50);
     console.log(result);
 
     const result2 = students.every((student) => student.score < 50);
     console.log(result2);
 }
-console.clear();
+// console.clear();
 // Q9. compute students' average score
 {
     // const result = students.reduceRight((prev, curr) => {
@@ -110,3 +112,13 @@ console.clear();
     .join();
     console.log(result);
 }
+
+// dhshin lab
+// console.clear()
+{
+  const result = students
+    .map(student => student.score);
+  console.log(result);
+  console.log(typeof(result));
+}
+
