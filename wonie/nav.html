@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repl.it</title>
+    <style>
+        .nav {
+            height: 70px;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+        }
+        .nav-right-items {
+            display: flex;
+            margin-left: auto;
+        }
+        .nav-item {
+            margin-left: 10px;
+        }
+        .company-name {
+            margin-left: 20px;
+        }
+        .title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+        .main {
+            width: 800px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+        .prices {
+            display: flex;
+        }
+        .price-item {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .price-item-title {
+            font-size: 1.5rem;
+            background: #bec0c2;
+            height: 53px;
+            line-height: 53px;
+            border-bottom: 1px solid black;
+        }
+        .price-item-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 20px;
+        }
+        .price-item-button {
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            border-radius: .3rem;
+            color: #007bff;
+            background-color: transparent;
+            background-image: none;
+            border-color: #007bff;
+            margin-top: 20px;
+        }
+        .price-item-button--active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .price-item-month {
+            font-size: 16px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="company-name">테크보이 워니</div>
+        <div class="nav-right-items">
+            <div class="nav-item">메뉴1</div>
+            <div class="nav-item">메뉴2</div>
+            <div class="nav-item">메뉴3</div>
+            <div class="nav-item">메뉴4</div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="title">
+            Pricing
+        </div>
+        <div class="subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima nobis praesentium aut aperiam, et, cupiditate porro pariatur molestiae quae consequatur possimus dolorem dignissimos expedita tempora vitae laudantium accusantium eligendi.
+        </div>
+        <div class="prices">
+            <div class="price-item">
+                <div class="price-item-title">Free</div>
+                <div class="price-item-price">$0 <span class="price-item-month">/ mo</span>
+                </div>
+                <div class="price-item-detail">10 user include</div>
+                <div class="price-item-detail">2 GB of storage</div>
+                <div class="price-item-detail">Email support</div>
+                <button class="price-item-button">Click</button>
+            </div>
+            <div class="price-item">
+                <div class="price-item-title ">Free</div>
+                <div class="price-item-price">$0 <span class="price-item-month">/ mo</span>
+                </div>
+                <div class="price-item-detail">10 user include</div>
+                <div class="price-item-detail">2 GB of storage</div>
+                <div class="price-item-detail">Email support</div>
+                <button class="price-item-button price-item-button--active">Click</button>
+            </div>
+            <div class="price-item">
+                <div class="price-item-title">Free</div>
+                <div class="price-item-price">$0 <span class="price-item-month">/ mo</span>
+                </div>
+                <div class="price-item-detail">10 user include</div>
+                <div class="price-item-detail">2 GB of storage</div>
+                <div class="price-item-detail">Email support</div>
+                <button class="price-item-button price-item-button--active">Click</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
