@@ -23,7 +23,7 @@
 // Q4. make new array without the first two element
 {
   const array = [1, 2, 3, 4, 5];
-  // const result = array.splice(0, 2); // 배열자체를 변경
+  const result = array.splice(0, 2); // 배열자체를 변경
   const result = array.slice(2, 5); // 배열에서 원하는 값 리턴
   console.log(result);
   console.log(array);
