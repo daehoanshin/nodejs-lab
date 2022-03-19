@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
-
-  const onSubmit = () => {
-    alert('submitted');
+  const [count, setCount] = useState(0);
+  const [kossie, setKossie] = useState(0);
+  useEffect(() => {
+    console.log(count);
+  }, [count, kossie]);
+  const increment = () => {
+    setCount(count + 1);
   };
 
-  const onKeyUp = (event) => {
-    if(event.keyCode === 13) {
-      onSubmit();
-    } 
-    console.log('key up');
-  };
- 
+  useEffect(() => {
+    console.log('first rendering')
+  }, []);
+
   return (
     <div className='App'>
-      <input onKeyUp={onKeyUp} />
-      <button onClick={onSubmit}>
-        Submit
-      </button>
+      <h1>Kossie Code</h1>
+      <button onClick={increment}>Click</button>
+      <button onClick={() => setKossie(kossie + 1)}>Click1</button>
     </div>
   );
 }
